@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crest Water | Pure & Refreshing</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    @keyframes ripple {
+      0% {
+        transform: scale(0.8);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(2.4);
+        opacity: 0;
+      }
+    }
+    
+    .animate-fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+    
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    .ripple::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      transform: translate(-50%, -50%) scale(0.8);
+      animation: ripple 2s ease-out infinite;
+    }
+    
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .gradient-text {
+      background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .hover-lift {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .hover-lift:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);
+    }
+    
+    .product-card {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .product-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.2), transparent);
+      transition: left 0.5s;
+    }
+    
+    .product-card:hover::before {
+      left: 100%;
+    }
+    
+    .nav-link {
+      position: relative;
+      transition: color 0.3s;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: white;
+      transition: width 0.3s;
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 via-white to-cyan-50 text-gray-800 font-sans">
+
+  <!-- Navbar -->
+  <header class="fixed w-full top-0 z-50 bg-gradient-to-r from-blue-600 via-blue-700 to-cyan-600 text-white shadow-lg transition-all duration-300" id="navbar">
+    <div class="container mx-auto flex justify-between items-center p-4">
+      <h1 class="text-2xl font-bold flex items-center gap-3">
+        <img src="WhatsApp Image 2025-11-07 at 17.44.15_107df43c.jpg" alt="Crest Water Logo" class="h-10 w-10 object-contain bg-white rounded-full p-1">
+        Crest Water
+      </h1>
+      <nav class="hidden md:flex space-x-6">
+        <a href="#home" class="nav-link hover:text-gray-200">Home</a>
+        <a href="#about" class="nav-link hover:text-gray-200">About</a>
+        <a href="#products" class="nav-link hover:text-gray-200">Products</a>
+        <a href="#contact" class="nav-link hover:text-gray-200">Contact</a>
+      </nav>
+      <button id="menuBtn" class="md:hidden">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-blue-700 p-4">
+      <a href="#home" class="block py-2 hover:text-gray-200">Home</a>
+      <a href="#about" class="block py-2 hover:text-gray-200">About</a>
+      <a href="#products" class="block py-2 hover:text-gray-200">Products</a>
+      <a href="#contact" class="block py-2 hover:text-gray-200">Contact</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="relative bg-gradient-to-br from-blue-600 via-blue-700 to-cyan-600 text-white py-40 mt-16 overflow-hidden">
+    <div class="absolute inset-0 opacity-20">
+      <div class="absolute top-10 left-10 w-72 h-72 bg-white rounded-full mix-blend-multiply filter blur-3xl animate-float"></div>
+      <div class="absolute bottom-10 right-10 w-96 h-96 bg-cyan-300 rounded-full mix-blend-multiply filter blur-3xl animate-float" style="animation-delay: 1s"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 text-center relative z-10">
+      <div class="animate-fade-in-up">
+        <h2 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+          Pure. Refreshing. <span class="text-cyan-300">Reliable.</span>
+        </h2>
+        <p class="text-xl md:text-2xl mb-8 text-blue-100 max-w-2xl mx-auto">
+          Your trusted source for quality table and plastic bottled water. Delivered fresh to your doorstep.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="tel:+2349061155400" class="group bg-white text-blue-600 hover:bg-blue-50 px-8 py-4 rounded-full font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center gap-2">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+            </svg>
+            Call Now
+          </a>
+          <a href="https://wa.me/+2349061155400?text=Hi%20Crest%20Water,%20I%20want%20to%20order%20water" class="group bg-green-500 hover:bg-green-400 px-8 py-4 rounded-full font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center gap-2">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M13.601 2.326A7.932 7.932 0 008.002 0C3.582 0 .002 3.582.002 8a7.936 7.936 0 001.123 4.1L0 16l4.101-1.08A7.938 7.938 0 008.002 16c4.418 0 8-3.582 8-8a7.932 7.932 0 00-2.401-5.674z"/>
+            </svg>
+            WhatsApp Order
+          </a>
+        </div>
+      </div>
+      
+      <!-- Scroll Indicator -->
+      <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2">
+        <div class="animate-bounce">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-20 px-4">
+    <div class="container mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="text-center p-6 hover-lift bg-white rounded-2xl shadow-lg">
+          <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h4 class="text-xl font-bold mb-2 text-gray-800">100% Pure</h4>
+          <p class="text-gray-600">Advanced purification process ensures the highest quality water</p>
+        </div>
+        
+        <div class="text-center p-6 hover-lift bg-white rounded-2xl shadow-lg">
+          <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <h4 class="text-xl font-bold mb-2 text-gray-800">Fast Delivery</h4>
+          <p class="text-gray-600">Quick and reliable delivery to your doorstep</p>
+        </div>
+        
+        <div class="text-center p-6 hover-lift bg-white rounded-2xl shadow-lg">
+          <div class="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h4 class="text-xl font-bold mb-2 text-gray-800">Best Price</h4>
+          <p class="text-gray-600">Affordable rates with no compromise on quality</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 px-4 bg-gradient-to-br from-blue-50 to-cyan-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h3 class="text-4xl md:text-5xl font-bold gradient-text mb-4">About Crest Water</h3>
+        <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-cyan-600 mx-auto rounded-full"></div>
+      </div>
+      
+      <!-- Company Overview -->
+      <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+        <div class="space-y-6">
+          <h4 class="text-3xl font-bold text-gray-800">Our Story</h4>
+          <p class="text-lg leading-relaxed text-gray-700">
+            Crest Water is committed to delivering the purest and most refreshing bottled water to homes and businesses across the region.
+          </p>
+          <p class="text-lg leading-relaxed text-gray-700">
+            Our products go through a high-quality purification process ensuring safety, freshness, and taste. Whether at home, work, or events, we're here to keep you hydrated.
+          </p>
+          <div class="grid grid-cols-3 gap-4 pt-4">
+            <div class="bg-white p-4 rounded-xl shadow-md text-center hover-lift">
+              <div class="text-3xl font-bold text-blue-600">10+</div>
+              <div class="text-gray-600 text-sm">Years Experience</div>
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow-md text-center hover-lift">
+              <div class="text-3xl font-bold text-blue-600">5000+</div>
+              <div class="text-gray-600 text-sm">Happy Customers</div>
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow-md text-center hover-lift">
+              <div class="text-3xl font-bold text-blue-600">100%</div>
+              <div class="text-gray-600 text-sm">Pure Water</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="relative">
+          <div class="bg-gradient-to-br from-blue-400 to-cyan-400 rounded-2xl p-8 shadow-2xl">
+            <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=800&q=80" 
+                 alt="Water bottling facility" 
+                 class="w-full h-80 object-cover rounded-xl shadow-lg">
+          </div>
+        </div>
+      </div>
+
+      <!-- Our Facility -->
+      <div class="mb-20">
+        <h4 class="text-3xl font-bold text-gray-800 text-center mb-10">Our Facility & Production</h4>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="relative group overflow-hidden rounded-2xl shadow-xl hover-lift">
+            <img src="IMG-20251106-WA0083.jpg" 
+                 alt="Modern bottling machines" 
+                 class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent flex items-end p-6">
+              <div class="text-white">
+                <h5 class="text-xl font-bold mb-2">Advanced Machinery</h5>
+                <p class="text-sm text-blue-100">State-of-the-art bottling equipment</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="relative group overflow-hidden rounded-2xl shadow-xl hover-lift">
+            <img src="WhatsApp Image 2025-11-06 at 20.30.54_6f4630aa.jpg"
+                 alt="Water purification system" 
+                 class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent flex items-end p-6">
+              <div class="text-white">
+                <h5 class="text-xl font-bold mb-2">Purification Process</h5>
+                <p class="text-sm text-blue-100">Multi-stage filtration system</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="relative group overflow-hidden rounded-2xl shadow-xl hover-lift">
+            <img src="WhatsApp Image 2025-11-06 at 20.30.54_9f350246.jpg" 
+                 alt="Quality control testing" 
+                 class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent flex items-end p-6">
+              <div class="text-white">
+                <h5 class="text-xl font-bold mb-2">Quality Testing</h5>
+                <p class="text-sm text-blue-100">Rigorous quality control measures</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Our Products Showcase -->
+      <div class="mb-20">
+        <h4 class="text-3xl font-bold text-gray-800 text-center mb-10">Our Product Range</h4>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div class="bg-white rounded-2xl shadow-lg p-6 text-center hover-lift">
+            <img src="https://images.unsplash.com/photo-1523362628745-0c100150b504?auto=format&fit=crop&w=400&q=80" 
+                 alt="Water bottles" 
+                 class="w-full h-48 object-cover rounded-xl mb-4">
+            <h5 class="font-bold text-gray-800">50cl Bottles</h5>
+          </div>
+          
+          <div class="bg-white rounded-2xl shadow-lg p-6 text-center hover-lift">
+            <img src="https://images.unsplash.com/photo-1625772452859-1c03d5bf1137?auto=format&fit=crop&w=400&q=80" 
+                 alt="1L bottles" 
+                 class="w-full h-48 object-cover rounded-xl mb-4">
+            <h5 class="font-bold text-gray-800">1L Bottles</h5>
+          </div>
+          
+          <div class="bg-white rounded-2xl shadow-lg p-6 text-center hover-lift">
+            <img src="WhatsApp Image 2025-11-06 at 20.24.38_24027d1d.jpg" 
+                 alt="Dispenser bottles" 
+                 class="w-full h-48 object-cover rounded-xl mb-4">
+            <h5 class="font-bold text-gray-800">18.9L Dispensers</h5>
+          </div>
+          
+          <div class="bg-white rounded-2xl shadow-lg p-6 text-center hover-lift">
+            <img src="WhatsApp Image 2025-11-06 at 20.29.58_21c10d88.jpg" 
+                 alt="Packaged cartons" 
+                 class="w-full h-48 object-cover rounded-xl mb-4">
+            <h5 class="font-bold text-gray-800">Bulk Packages</h5>
+          </div>
+        </div>
+      </div>
+
+      <!-- Management Team -->
+      <div>
+        <h4 class="text-3xl font-bold text-gray-800 text-center mb-4">Meet Our Leadership Team</h4>
+        <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+          Our dedicated team of professionals brings years of experience in water purification and customer service
+        </p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Manager 1 -->
+          <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover-lift">
+            <div class="relative h-80">
+              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80" 
+                   alt="CEO" 
+                   class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-blue-900/90 via-blue-900/40 to-transparent"></div>
+              <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                <h5 class="text-2xl font-bold mb-1">John Akinwale</h5>
+                <p class="text-blue-200 font-semibold mb-3">Chief Executive Officer</p>
+              </div>
+            </div>
+            <div class="p-6">
+              <p class="text-gray-600 leading-relaxed">
+                With over 15 years in the beverage industry, John leads Crest Water with a vision for excellence and sustainability. His commitment to quality has made us a trusted name in water supply.
+              </p>
+              <div class="flex gap-3 mt-4">
+                <a href="#" class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 hover:bg-blue-600 hover:text-white transition-colors">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 0C4.477 0 0 4.477 0 10c0 4.991 3.657 9.128 8.438 9.879V12.89h-2.54V10h2.54V7.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V10h2.773l-.443 2.89h-2.33v6.989C16.343 19.129 20 14.99 20 10c0-5.523-4.477-10-10-10z"/>
+                  </svg>
+                </a>
+                <a href="#" class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 hover:bg-blue-600 hover:text-white transition-colors">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Manager 2 -->
+          <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover-lift">
+            <div class="relative h-80">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" 
+                   alt="Operations Manager" 
+                   class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-blue-900/90 via-blue-900/40 to-transparent"></div>
+              <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                <h5 class="text-2xl font-bold mb-1">Sarah Okonkwo</h5>
+                <p class="text-blue-200 font-semibold mb-3">Operations Manager</p>
+              </div>
+            </div>
+            <div class="p-6">
+              <p class="text-gray-600 leading-relaxed">
+                Sarah oversees our entire production and distribution network. Her expertise in logistics ensures that every order reaches our customers fresh and on time, maintaining our reputation for reliability.
+              </p>
+              <div class="flex gap-3 mt-4">
+                <a href="#" class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 hover:bg-blue-600 hover:text-white transition-colors">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 0C4.477 0 0 4.477 0 10c0 4.991 3.657 9.128 8.438 9.879V12.89h-2.54V10h2.54V7.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V10h2.773l-.443 2.89h-2.33v6.989C16.343 19.129 20 14.99 20 10c0-5.523-4.477-10-10-10z"/>
+                  </svg>
+                </a>
+                <a href="#" class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 hover:bg-blue-600 hover:text-white transition-colors">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Manager 3 -->
+          <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover-lift">
+            <div class="relative h-80">
+              <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&q=80" 
+                   alt="Quality Control Manager" 
+                   class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-blue-900/90 via-blue-900/40 to-transparent"></div>
+              <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                <h5 class="text-2xl font-bold mb-1">David Mensah</h5>
+                <p class="text-blue-200 font-semibold mb-3">Quality Control Manager</p>
+              </div>
+            </div>
+            <div class="p-6">
+              <p class="text-gray-600 leading-relaxed">
+                David leads our quality assurance team with precision and dedication. His rigorous testing protocols and attention to detail guarantee that every bottle meets international safety and purity standards.
+              </p>
+              <div class="flex gap-3 mt-4">
+                <a href="#" class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 hover:bg-blue-600 hover:text-white transition-colors">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 0C4.477 0 0 4.477 0 10c0 4.991 3.657 9.128 8.438 9.879V12.89h-2.54V10h2.54V7.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V10h2.773l-.443 2.89h-2.33v6.989C16.343 19.129 20 14.99 20 10c0-5.523-4.477-10-10-10z"/>
+                  </svg>
+                </a>
+                <a href="#" class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 hover:bg-blue-600 hover:text-white transition-colors">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Products Section -->
+  <section id="products" class="py-20 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <h3 class="text-4xl md:text-5xl font-bold gradient-text mb-4">Our Products</h3>
+        <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-cyan-600 mx-auto rounded-full"></div>
+        <p class="text-gray-600 mt-4 text-lg">Choose from our range of premium bottled water</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="product-card bg-white p-8 rounded-2xl shadow-xl hover-lift">
+          <div class="w-20 h-20 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg class="w-10 h-10 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6z"/>
+            </svg>
+          </div>
+          <h4 class="text-2xl font-bold mb-3 text-center text-gray-800">Table Water</h4>
+          <div class="text-center mb-4">
+            <span class="text-gray-500 text-sm">Size: 60cl</span>
+          </div>
+          <div class="text-center mb-6">
+            <span class="text-4xl font-bold text-blue-600">₦500</span>
+          </div>
+          <p class="text-gray-600 text-center mb-6">Perfect for on-the-go hydration. Convenient and refreshing.</p>
+          <a href="https://wa.me/+2349061155400?text=I%20want%20to%20order%20Table%20Water%2050cl" class="block w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white text-center py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg">
+            Order Now
+          </a>
+        </div>
+        
+        <div class="product-card bg-gradient-to-br from-blue-600 to-cyan-600 p-8 rounded-2xl shadow-2xl hover-lift transform md:scale-105">
+          <div class="absolute top-4 right-4 bg-yellow-400 text-gray-800 px-3 py-1 rounded-full text-sm font-bold">
+            Popular
+          </div>
+          <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg class="w-10 h-10 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16z" clip-rule="evenodd"/>
+            </svg>
+          </div>
+          <h4 class="text-2xl font-bold mb-3 text-center text-white">Plastic Bottle</h4>
+          <div class="text-center mb-4">
+            <span class="text-blue-100 text-sm">Size: 1L</span>
+          </div>
+          <div class="text-center mb-6">
+            <span class="text-4xl font-bold text-white">₦1500</span>
+          </div>
+          <p class="text-blue-50 text-center mb-6">Crystal clear, refreshing, and healthy. Perfect for families.</p>
+          <a href="https://wa.me/+2349061155400?text=I%20want%20to%20order%20Plastic%20Bottle%20Water%201L" class="block w-full bg-white hover:bg-gray-100 text-blue-600 text-center py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg">
+            Order Now
+          </a>
+        </div>
+        
+        <div class="product-card bg-white p-8 rounded-2xl shadow-xl hover-lift">
+          <div class="w-20 h-20 bg-gradient-to-br from-cyan-100 to-cyan-200 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg class="w-10 h-10 text-cyan-600" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6z"/>
+            </svg>
+          </div>
+          <h4 class="text-2xl font-bold mb-3 text-center text-gray-800">Dispenser Bottle</h4>
+          <div class="text-center mb-4">
+            <span class="text-gray-500 text-sm">Size: 18.9L</span>
+          </div>
+          <div class="text-center mb-6">
+            <span class="text-4xl font-bold text-cyan-600">₦1000</span>
+          </div>
+          <p class="text-gray-600 text-center mb-6">Ideal for homes and offices. Long-lasting and economical.</p>
+          <a href="https://wa.me/+2349061155400?text=I%20want%20to%20order%20Dispenser%20Bottle%2018.9L" class="block w-full bg-gradient-to-r from-cyan-600 to-cyan-700 hover:from-cyan-700 hover:to-cyan-800 text-white text-center py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg">
+            Order Now
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Contact / Order Form -->
+  <section id="contact" class="py-20 px-4 bg-gradient-to-br from-blue-50 via-white to-cyan-50">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-12">
+        <h3 class="text-4xl md:text-5xl font-bold gradient-text mb-4">Place Your Order</h3>
+        <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-cyan-600 mx-auto rounded-full"></div>
+        <p class="text-gray-600 mt-4">Fill out the form and we'll contact you via WhatsApp</p>
+      </div>
+      
+      <form id="orderForm" class="bg-white shadow-2xl rounded-2xl p-8 space-y-6">
+        <div>
+          <label class="block text-sm font-semibold text-gray-700 mb-2">Full Name</label>
+          <input type="text" id="name" placeholder="Enter your full name" class="w-full border-2 border-gray-200 focus:border-blue-500 rounded-xl p-4 transition-colors outline-none" required>
+        </div>
+        
+        <div>
+          <label class="block text-sm font-semibold text-gray-700 mb-2">Phone Number</label>
+          <input type="tel" id="phone" placeholder="Enter your phone number" class="w-full border-2 border-gray-200 focus:border-blue-500 rounded-xl p-4 transition-colors outline-none" required>
+        </div>
+        
+        <div>
+          <label class="block text-sm font-semibold text-gray-700 mb-2">Product & Quantity</label>
+          <input type="text" id="product" placeholder="e.g. 2 cartons of 1L bottles" class="w-full border-2 border-gray-200 focus:border-blue-500 rounded-xl p-4 transition-colors outline-none" required>
+        </div>
+        
+        <div>
+          <label class="block text-sm font-semibold text-gray-700 mb-2">Delivery Address</label>
+          <textarea id="address" placeholder="Enter your complete delivery address" class="w-full border-2 border-gray-200 focus:border-blue-500 rounded-xl p-4 h-32 transition-colors outline-none resize-none" required></textarea>
+        </div>
+        
+        <button type="submit" class="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-8 py-4 rounded-xl w-full font-semibold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-3">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M13.601 2.326A7.932 7.932 0 008.002 0C3.582 0 .002 3.582.002 8a7.936 7.936 0 001.123 4.1L0 16l4.101-1.08A7.938 7.938 0 008.002 16c4.418 0 8-3.582 8-8a7.932 7.932 0 00-2.401-5.674z"/>
+          </svg>
+          Send Order via WhatsApp
+        </button>
+      </form>
+      
+      <div class="mt-8 text-center">
+        <p class="text-gray-600 mb-4">Or contact us directly:</p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="tel:+2349061155400" class="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+            </svg>
+            +234 906 1155 400
+          </a>
+          <span class="text-gray-400">|</span>
+          <a href="mailto:info@crestwater.com" class="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+              <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+            </svg>
+            info@crestwater.com
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gradient-to-r from-blue-700 via-blue-800 to-cyan-700 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-3 gap-8 mb-8">
+        <div>
+          <h4 class="text-xl font-bold mb-4 flex items-center gap-2">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16z" clip-rule="evenodd"/>
+            </svg>
+            Crest Water
+          </h4>
+          <p class="text-blue-100">Your trusted source for pure, refreshing bottled water.</p>
+        </div>
+        <div>
+          <h4 class="text-xl font-bold mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-blue-100">
+            <li><a href="#home" class="hover:text-white transition-colors">Home</a></li>
+            <li><a href="#about" class="hover:text-white transition-colors">About</a></li>
+            <li><a href="#products" class="hover:text-white transition-colors">Products</a></li>
+            <li><a href="#contact" class="hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-xl font-bold mb-4">Contact Info</h4>
+          <ul class="space-y-2 text-blue-100">
+            <li>Phone: +234 906 1155 400</li>
+            <li>Email: info@crestwater.com</li>
+            <li>Available 24/7 for orders</li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-blue-600 pt-8 text-center">
+        <p class="text-blue-100">&copy; 2025 Crest Water. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/23058555555?text=Hi%20Crest%20Water,%20I%20want%20to%20order%20water" 
+     class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-400 text-white p-4 rounded-full shadow-2xl hover:shadow-green-500/50 transition-all duration-300 z-50 ripple"
+     target="_blank" aria-label="Chat on WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-8 h-8" viewBox="0 0 16 16">
+      <path d="M13.601 2.326A7.932 7.932 0 008.002 0C3.582 0 .002 3.582.002 8a7.936 7.936 0 001.123 4.1L0 16l4.101-1.08A7.938 7.938 0 008.002 16c4.418 0 8-3.582 8-8a7.932 7.932 0 00-2.401-5.674zM8.002 14.5a6.471 6.471 0 01-3.289-.89l-.236-.139-2.43.64.65-2.368-.154-.243A6.464 6.464 0 011.502 8a6.5 6.5 0 116.5 6.5zm3.694-4.978c-.204-.102-1.205-.594-1.392-.661-.187-.07-.324-.103-.46.101-.136.204-.527.661-.646.797-.12.136-.239.153-.443.051-.204-.102-.861-.317-1.64-1.011-.606-.54-1.015-1.205-1.135-1.41-.12-.204-.013-.314.09-.416.092-.09.204-.239.306-.358.102-.12.136-.204.204-.34.068-.136.034-.255-.017-.357-.051-.102-.46-1.11-.63-1.52-.166-.398-.335-.34-.46-.34-.12 0-.255-.017-.391-.017-.136 0-.357.051-.544.255-.187.204-.714.7-.714 1.705s.731 1.977.833 2.116c.102.136 1.435 2.19 3.477 3.07.486.21.865.337 1.16.43.487.155.93.134 1.28.081.391-.059 1.205-.49 1.375-.961.17-.471.17-.874.119-.96-.051-.085-.187-.136-.391-.238z"/>
+    </svg>
+  </a>
+
+  <!-- Scripts -->
+  <script>
+    // Mobile Menu Toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('#mobileMenu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+    
+    // Navbar scroll effect
+    let lastScroll = 0;
+    const navbar = document.getElementById('navbar');
+    
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      
+      if (currentScroll > 100) {
+        navbar.classList.add('shadow-2xl');
+      } else {
+        navbar.classList.remove('shadow-2xl');
+      }
+      
+      lastScroll = currentScroll;
+    });
+    
+    // WhatsApp Form Handler
+    document.getElementById("orderForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const product = document.getElementById("product").value.trim();
+      const address = document.getElementById("address").value.trim();
+
+      if (!name || !phone || !product || !address) {
+        alert('Please fill in all fields');
+        return;
+      }
+
+      const message = `Hello Crest Water,%0A%0AI want to place an order.%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Product:* ${encodeURIComponent(product)}%0A*Delivery Address:* ${encodeURIComponent(address)}`;
+      const url = `https://wa.me/+2349061155400?text=${message}`;
+
+      window.open(url, "_blank");
+      
+      // Reset form
+      this.reset();
+    });
+    
+    // Animate elements on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+    
+    // Observe product cards and feature boxes
+    document.querySelectorAll('.product-card, .hover-lift').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>
